@@ -1,5 +1,6 @@
 #include <iostream>
 #include <lodepng.h>
+#include <cmath>
 
 const int width = 1920, height = 1080;
 const int nChannels = 4;
@@ -56,10 +57,12 @@ int main()
 
 	// [TASK 3: Answer]
 	int radius = 10;
+	float centerX = width * 0.5f;
+	float centerY = height * 0.5f;
 
 	for (int y = 0; y < height; ++y) {
 		for (int x = 0; x < width; ++x) {
-			if (sqrt((x - (width / 2)) ^ 2 + (y - (height / 2)) ^ 2) < radius) {
+			if (sqrt((x - (int)centerX) ^ 2 + (y - (int)centerY) ^ 2) < radius) {
 				setPixel(imageBuffer.data(), x, y, 0, 0, 0, 255);
 			}
 		}
