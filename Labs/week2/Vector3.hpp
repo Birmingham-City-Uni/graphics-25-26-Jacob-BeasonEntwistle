@@ -14,7 +14,7 @@ public:
 	// This is the default constructor.
 	// Change this to set the x, y and z components of the vector to all be zero.
 	// You can use an initialiser list, or set them in the constructor function's body.
-	Vector3()
+	Vector3() : x_(0), y_(0), z_(0)
 	{
 		// YOUR CODE HERE
 	}
@@ -25,18 +25,23 @@ public:
 	Vector3(float x, float y, float z)
 	{
 		// YOUR CODE HERE
+		x = x_;
+		y = y_;
+		z = z_;
 	}
 
 	// Implement this method to add two vectors.
 	Vector3 operator+(const Vector3& other) const
 	{
 		// YOUR CODE HERE
+		return Vector3(x_, y_, z_) + Vector3(other.x_, other.y_, other.z_);
 	}
 
 	// Multiply the vector by a scalar.
 	Vector3 operator*(float scalar) const
 	{
 		// YOUR CODE HERE
+		return Vector3(x_, y_, z_) * scalar;
 	}
 
 	// Get a component of the vector
