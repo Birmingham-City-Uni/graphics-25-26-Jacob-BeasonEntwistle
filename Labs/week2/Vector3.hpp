@@ -49,7 +49,7 @@ public:
 
 	// Multiply the vector by a scalar.
 	// --[PERSONAL NOTE]--
-	// Same as above, return a new vector with the values multiplied within the new vector.
+	// Same process as above, return a new vector with the values multiplied within the new vector.
 	Vector3 operator*(float scalar) const
 	{
 		// YOUR CODE HERE

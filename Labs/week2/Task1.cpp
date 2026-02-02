@@ -78,7 +78,7 @@ int main()
 		// 4. Then you can eliminate the v character by taking it out (>>) of the linestream
 		// 5. Then you create a new vector3 (Vector3 is the type, then you give it a name like "newVector")
 		// 6. Then you extract the x (0), y (1), and z (2) values and put them into the newVector
-		// 7. Finally you can push the vector into the list of vertices
+		// 7. Finally you can push the new Vector3 into the list of vertices
 		if (line[0] == 'v' && line[1] == ' ') {
 			std::stringstream linestream(line);
 			char vCharacter;
@@ -102,6 +102,9 @@ int main()
 		//         big enough to see.
 
 		// *** YOUR CODE HERE ***
+
+
+		setPixel(imageBuffer, v[0], v[1], width, height, 255, 255, 255, 255);
 	}
 
 
