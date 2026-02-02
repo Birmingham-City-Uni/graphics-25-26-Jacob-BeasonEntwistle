@@ -14,6 +14,9 @@ public:
 	// This is the default constructor.
 	// Change this to set the x, y and z components of the vector to all be zero.
 	// You can use an initialiser list, or set them in the constructor function's body.
+	// --[PERSONAL NOTE]--
+	// This creates the inital values for a new Vector3
+	// The default values are 0
 	Vector3() : x_(0), y_(0), z_(0)
 	{
 		// YOUR CODE HERE
@@ -22,6 +25,8 @@ public:
 	// This constructor can be used to set the x, y and z components of a vector when it
 	// is created. Change this function to set the x_, y_ and z_ members to the values
 	// provided.
+	// --[PERSONAL NOTE]--
+	// This overloads the previous constructor which allows new values to be put into the Vector3
 	Vector3(float x, float y, float z)
 	{
 		// YOUR CODE HERE
@@ -31,17 +36,24 @@ public:
 	}
 
 	// Implement this method to add two vectors.
+	// --[PERSONAL NOTE]--
+	// This is telling the operating system HOW to add the two vectors.
+	// Adding the vectors like this Vector3(x, y, z) + Vector3(other.x, other.y, other.z)
+	// creates a circular motion as its trying to add the two together again rather than actually calculating it.
+	// To fix this, simply return a new vector with the values added within that new vector.
 	Vector3 operator+(const Vector3& other) const
 	{
 		// YOUR CODE HERE
-		return Vector3(x_, y_, z_) + Vector3(other.x_, other.y_, other.z_);
+		return Vector3(x_ + other.x_, y_ + other.y_, z_ + other.z_);
 	}
 
 	// Multiply the vector by a scalar.
+	// --[PERSONAL NOTE]--
+	// Same as above, return a new vector with the values multiplied within the new vector.
 	Vector3 operator*(float scalar) const
 	{
 		// YOUR CODE HERE
-		return Vector3(x_, y_, z_) * scalar;
+		return Vector3(x_ * scalar, y_ * scalar, z_ * scalar);
 	}
 
 	// Get a component of the vector
@@ -54,6 +66,18 @@ public:
 	float& operator[](int i)
 	{
 		// YOUR CODE HERE
+		if (i == 0) {
+			return x_;
+		}
+		else if (i == 1) {
+			return y_;
+		}
+		else if (i == 2) {
+			return z_;
+		}
+		else {
+			std::cout << "Error: Cannot get a component higher than 2\nx = 0\ny = 1\nz = 2" << std::endl;
+		}
 	}
 
 	// This is the const version of the [] operator.
@@ -62,6 +86,19 @@ public:
 	float operator[](int i) const
 	{
 		// YOUR CODE HERE
+		if (i == 0) {
+			return x_;
+		}
+		else if (i == 1) {
+			return y_;
+		}
+		else if (i == 2) {
+			return z_;
+		}
+		else {
+			std::cout << "Error: Cannot get a component higher than 2\nx = 0\ny = 1\nz = 2" << std::endl;
+			return 1;
+		}
 	}
 
 	// I have already written these getters for you.

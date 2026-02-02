@@ -69,6 +69,25 @@ int main()
 		// Load it into a new Vector3, if the line starts with a V
 		// Push this back into the std::vector of vertices
 		// For debugging, maybe print out the vector too!
+
+
+		// --[PERSONAL NOTE]--
+		// 1. First you find the lines that start with v and only v (not "vn" or "vt")
+		// 2. Then you create a stringstream (called linestream), which makes it easier to separate each chunk of the line, and put the line into it
+		// 3. Then you create a variable to store the v character (the start of the line)
+		// 4. Then you can eliminate the v character by taking it out (>>) of the linestream
+		// 5. Then you create a new vector3 (Vector3 is the type, then you give it a name like "newVector")
+		// 6. Then you extract the x (0), y (1), and z (2) values and put them into the newVector
+		// 7. Finally you can push the vector into the list of vertices
+		if (line[0] == 'v' && line[1] == ' ') {
+			std::stringstream linestream(line);
+			char vCharacter;
+			linestream >> vCharacter;
+
+			Vector3 newVector;
+			linestream >> newVector[0] >> newVector[1] >> newVector[2];
+			vertices.push_back(newVector);
+		}
 	}
 
 	for (auto& v : vertices) {
